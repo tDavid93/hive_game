@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: HexQueen
+  m_Name: HexSpiderWhite
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -39,11 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 10ff9bd7677d6aa4795f298f5b15e558, type: 3}
+        m_Texture: {fileID: 2800000, guid: 375bce5c0e25e6c47ab64c3c1190e8bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 10ff9bd7677d6aa4795f298f5b15e558, type: 3}
+        m_Texture: {fileID: 2800000, guid: b0dacaba6b4d26a438cc35a3afdd74ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -51,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 10ff9bd7677d6aa4795f298f5b15e558, type: 3}
+        m_Texture: {fileID: 2800000, guid: b0dacaba6b4d26a438cc35a3afdd74ba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -72,5 +72,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.8584906, g: 0.7654668, b: 0, a: 0.32156864}
+    - _Color: {r: 0.6226415, g: 0.37169632, b: 0.255518, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

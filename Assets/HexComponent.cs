@@ -41,7 +41,7 @@ public class HexComponent : MonoBehaviour
     /// </summary>
     private void PlaceFromMenu()
     {
-        
+       
 
         HexMap.updateHex(Hex, GUI.PlaceSelectedBug().Id);
 
@@ -56,9 +56,11 @@ public class HexComponent : MonoBehaviour
 
     private void OnMouseUp()
     {
-
-        if (GUI.Round == 0)
+        Debug.Log(GUI.getRound());
+        Debug.Log(string.Format("{0},{1}", Hex.Q, Hex.R));
+        if (GUI.getRound() == 0)
         {
+            
             PlaceFromMenu();
             
         }

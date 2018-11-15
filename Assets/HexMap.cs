@@ -74,9 +74,10 @@ public class HexMap : MonoBehaviour {
     /// <param name="material"></param>
     public void updateHex(Hex hex, int material)
     { MeshRenderer mr;
+        Debug.Log(material);
         hex.TileType = material;
         mr = hexToGameObjectMap[hex].GetComponentInChildren<MeshRenderer>();
-        mr.material = HexMaterial[material];
+        mr.material = HexMaterial[material]; //GUI.GetComponent<GuiHandler>().WhosTurnIs(),
     }
 
 

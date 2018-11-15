@@ -45,7 +45,7 @@ static class BugTypeFactory{
         {"Worm",8},
         {"Mosquito",6},
         {"LadyBug",7},
-        {"Beetle",5},
+        {"Beatle",5},
 
     };
 
@@ -56,7 +56,7 @@ static class BugTypeFactory{
         {2,"Ant"},
         {3,"Spider"},
         {4,"Grasshopper"},
-        {5,"Beetle"},
+        {5,"Beatle"},
         {6,"Mosquito"},
         {7,"LadyBug"},
         {8,"Worm"}
@@ -114,7 +114,7 @@ static class BugTypeFactory{
     /// </summary>
     /// <param name="bugId"></param>
     /// <returns></returns>
-    static public BugType CreateBugType(int bugId)
+    static public BugType CreateBugType(int bugId, int PId)
     {
         if (bugId >= bugIdToName.Count || bugId < 0)
         {
@@ -124,8 +124,40 @@ static class BugTypeFactory{
 
         //TODO:
         //Make it work for player 2!!!!
-        return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId],1);
+        return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId],PId);
 
+    }
+
+
+    /// <summary>
+    /// if no player id given to CreateBugType() it creats an empty bugType
+    /// </summary>
+    /// <param name="bugId"></param>
+    /// <returns></returns>
+    static public BugType CreateBugType(int bugId)
+    {
+        bugId = 0;
+        int PId = 0;
+        if (bugId >= bugIdToName.Count || bugId < 0)
+        {
+            Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");
+            bugId = 0;
+        }
+
+        //TODO:
+        //Make it work for player 2!!!!
+        return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId], PId);
+    }
+        static public BugType CreateDefault()
+        {
+            int bugId = 0;
+            int PId = 0;
+            if (bugId >= bugIdToName.Count || bugId < 0)
+            {
+                Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");
+                bugId = 0;
+            }
+            return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId], PId);
     }
 
 
