@@ -36,7 +36,7 @@ public class HexMap : MonoBehaviour {
     {
         if (hexes == null)
         {
-            Debug.Log("Hexes array not yet instatntiated!!!");
+            Debug.LogError("Hexes array not yet instatntiated!!!");
             //throw new UnityException("Hexes array not yet instatntiated!!!");
             return null;
         }
@@ -75,7 +75,6 @@ public class HexMap : MonoBehaviour {
     public void updateHex(Hex hex, int material)
     { MeshRenderer mr;
         hex.TileType = material;
-        //Debug.Log(hexToGameObjectMap[hex].name);
         mr = hexToGameObjectMap[hex].GetComponentInChildren<MeshRenderer>();
         mr.material = HexMaterial[material];
     }
@@ -103,14 +102,15 @@ public class HexMap : MonoBehaviour {
                     this.transform
                     );
 
-                Debug.Log(string.Format("{0} , {1} , {2}", h.Q, h.R, h.S));
-                Debug.Log(string.Format("{0} , ", hexGo.GetComponent<Transform>().localPosition ));
+                //Debug.Log(string.Format("{0} , {1} , {2}", h.Q, h.R, h.S));
+                //Debug.Log(string.Format("{0} , ", hexGo.GetComponent<Transform>().localPosition ));
                 h.TileType = 0;
                 hexToGameObjectMap[h] = hexGo;
                 
                 hexGo.name = string.Format("HEX: {0},{1}", column, row);
                 hexGo.GetComponentInChildren<HexComponent>().Hex = h;
                 hexGo.GetComponentInChildren<HexComponent>().HexMap = this;
+                hexGo.GetComponentInChildren<HexComponent>().GUICanvas = GUI;
 
                 hexGo.GetComponentInChildren<TextMesh>().text = string.Format("{0},{1}", column, row);
 

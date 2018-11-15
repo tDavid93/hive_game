@@ -13,12 +13,17 @@ public class HexComponent : MonoBehaviour
     public ToggleGroup BugSelecter;
 
 
-    private MenuHandler menu;
+    public Canvas GUICanvas;
+
+
+    private GuiHandler GUI;
 
 
 
     private void Start()
     {
+
+        GUI = GUICanvas.GetComponent<GuiHandler>();
         //menu = Camera.main.GetComponentInChildren<MenuHandler>();
     }
 
@@ -32,43 +37,30 @@ public class HexComponent : MonoBehaviour
     }
 
     /// <summary>
-    /// place a bug the map from the menu and subtract 1 from the counter
+    /// 
     /// </summary>
-   /* private void PlaceFromMenu()
+    private void PlaceFromMenu()
     {
-        int bugId = menu.GetSelectedBugId();
+        
 
-        if (menu.bugCount[menu.SelectedBug] > 0 && Hex.TileType == 0)
-        {
-            menu.RoundCount++;
-            HexMap.updateHex(Hex, bugId);
-            menu.bugCount[menu.SelectedBug] = menu.bugCount[menu.SelectedBug] - 1;
-            //Debug.Log(menu.bugCount[menu.SelectedBug]);
-        }
+        HexMap.updateHex(Hex, GUI.PlaceSelectedBug().Id);
+
+
 
     }
-    
+
     /// <summary>
     /// Force place the bee title if not placed in the 3. turn
     /// </summary>
-    private void PlaceBee()
-    {
-        if (menu.bugCount["Bee"] > 0 && Hex.TileType == 0)
-        {
-            menu.RoundCount++;
-            HexMap.updateHex(Hex, 1);
-            menu.bugCount["Bee"] = menu.bugCount["Bee"] - 1;
-            //Debug.Log(menu.bugCount[menu.bugName[1]]);
-        }
-    }
+
 
     private void OnMouseUp()
     {
-        /*
-        if (menu.RoundCount == 0)
+
+        if (GUI.Round == 0)
         {
             PlaceFromMenu();
-            menu.RoundCount++;
+            
         }
         else
         {
@@ -79,7 +71,7 @@ public class HexComponent : MonoBehaviour
             foreach (var item in nb)
             {
 
-            //if any neighbour is a bug isPlaceable = true
+                //if any neighbour is a bug isPlaceable = true
                 if (item.TileType != 0)
                 {
                     isPlaceable = true;
@@ -87,29 +79,22 @@ public class HexComponent : MonoBehaviour
             }
 
 
-            
+
             if (isPlaceable)
             {
 
 
-                if (menu.RoundCount >= 4 && menu.bugCount["Bee"] == 1)
-                {
-                    PlaceBee();
+                PlaceFromMenu();
 
-                }
-                else
-                {
-                    PlaceFromMenu();
-                }
-                
             }
-            
+
         }
-        
-  
-            //Debug.Log(Camera.main.GetComponentInChildren<MenuHandler>().SelectedBug);
+
+
+        //Debug.Log(Camera.main.GetComponentInChildren<MenuHandler>().SelectedBug);
 
     }
-    */
-    
+
+
 }
+
