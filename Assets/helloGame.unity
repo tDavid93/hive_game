@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657892, g: 0.49641287, b: 0.5748173, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3306,6 +3306,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HexPrefab: {fileID: 1756980749556512, guid: fd877d231b622514085e9088f1f7ec0a, type: 2}
+  HexMaterialBlack:
+  - {fileID: 2100000, guid: 0bbf313e20f647f438795272106d72cd, type: 2}
+  - {fileID: 2100000, guid: ad132e0e54ae7d54099cef85bd3c746a, type: 2}
+  - {fileID: 2100000, guid: 39ad7ba0340b96142b4bfea470ffddee, type: 2}
+  - {fileID: 2100000, guid: ace130da0a0f10346b53a638aecdd484, type: 2}
+  - {fileID: 2100000, guid: 3115e7a930b1d264089b290995b38b2c, type: 2}
+  - {fileID: 2100000, guid: d2632c3b015fba9408ca42f271554723, type: 2}
+  HexMaterialWhite:
+  - {fileID: 2100000, guid: 0bbf313e20f647f438795272106d72cd, type: 2}
+  - {fileID: 2100000, guid: be0e51c02a33c32488eeff2b8e91380b, type: 2}
+  - {fileID: 2100000, guid: 019807c7861237b4fac46aa6145c7e9f, type: 2}
+  - {fileID: 2100000, guid: 99a85e6958e80074a84470758d45488a, type: 2}
+  - {fileID: 2100000, guid: 841f694adc8a87f4998eb1dc487d25ab, type: 2}
+  - {fileID: 2100000, guid: 890651265266ba04182cc7149017312c, type: 2}
   GUI: {fileID: 1301863502}
 --- !u!4 &1552184213
 Transform:
