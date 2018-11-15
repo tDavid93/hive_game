@@ -148,7 +148,7 @@ static class BugTypeFactory{
         //Make it work for player 2!!!!
         return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId], PId);
     }
-        static public BugType CreateDefault()
+    static public BugType CreateDefault()
         {
             int bugId = 0;
             int PId = 0;

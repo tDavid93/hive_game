@@ -22,6 +22,15 @@ public class GuiHandler : MonoBehaviour
         
     }
 
+    public BugType GetSelectedBugType()
+    {
+        
+        Debug.Log(string.Format("round {0}, player: {1}", Round, WhosTurnIs()));
+        return players[WhosTurnIs()].PlaceSelectedBug();
+
+
+
+    }
 
     public int getRound()
     {
@@ -39,12 +48,12 @@ public class GuiHandler : MonoBehaviour
         if (Round % 2  == 0)
         {
         
-            return 1;
+            return 0;
         }
         
         else{
 
-            return 0;
+            return 1;
         }
     }
 
@@ -67,5 +76,4 @@ public class GuiHandler : MonoBehaviour
 
 
 }
-    
 

@@ -9,7 +9,8 @@ public class HexMap : MonoBehaviour {
     public readonly int sizeY = 10;
     
     public GameObject HexPrefab;
-    public Material[] HexMaterial;
+    public Material[] HexMaterialBlack;
+    public Material[] HexMaterialWhite;
     public Canvas GUI;
 
     private Hex[,] hexes;
@@ -77,7 +78,22 @@ public class HexMap : MonoBehaviour {
         Debug.Log(material);
         hex.TileType = material;
         mr = hexToGameObjectMap[hex].GetComponentInChildren<MeshRenderer>();
-        mr.material = HexMaterial[material]; //GUI.GetComponent<GuiHandler>().WhosTurnIs(),
+        mr.material = getMatForPlayer()[material]; //GUI.GetComponent<GuiHandler>().WhosTurnIs(),
+    }
+
+    public Material[] getMatForPlayer()
+    {
+        if (GUI.GetComponent<GuiHandler>().WhosTurnIs() == 0)
+        {
+            return HexMaterialWhite;
+
+
+        }
+        else
+        {
+            return HexMaterialBlack;
+        }
+
     }
 
 
@@ -89,6 +105,7 @@ public class HexMap : MonoBehaviour {
 
         for (int column = 0; column < sizeX; column++)
         {
+            Debug.Log(string.Format("the x size is {0}, column is {1}", sizeX, column ));
             for (int row = 0; row < sizeY; row++)
             {
                 //Instantiate a Hex
@@ -116,7 +133,7 @@ public class HexMap : MonoBehaviour {
                 hexGo.GetComponentInChildren<TextMesh>().text = string.Format("{0},{1}", column, row);
 
                 MeshRenderer mr = hexGo.GetComponentInChildren<MeshRenderer>();
-                mr.material = HexMaterial[0];
+                mr.material = HexMaterialWhite[0];
                 hexGo.GetComponentInChildren<HexComponent>().mr = mr;
                 
                 

@@ -41,8 +41,8 @@ public class HexComponent : MonoBehaviour
     /// </summary>
     private void PlaceFromMenu()
     {
-       
 
+        Debug.Log(string.Format("HEX: {0};{1}, SelectedBugId: {2}", Hex.Q, Hex.R, GUI.GetSelectedBugType()));
         HexMap.updateHex(Hex, GUI.PlaceSelectedBug().Id);
 
 

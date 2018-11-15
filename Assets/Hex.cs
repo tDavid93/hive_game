@@ -26,6 +26,8 @@ public class Hex
     public readonly int S;
 
     public int TileType;
+    public int PlayerId;
+
 
 
     static readonly float WIDTH_MULTIPLAYER = Mathf.Sqrt(3) / 2;
