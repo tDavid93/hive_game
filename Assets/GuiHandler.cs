@@ -20,9 +20,10 @@ public class GuiHandler : MonoBehaviour
         
         if (players[WhosTurnIs()].SelectedEnoughInInventory())
         {
-            
+            //need a temp for player round because the turn increased before the placement!!!!
+            int tPlayerRound = WhosTurnIs();
             Round++;
-            return players[WhosTurnIs()].PlaceSelectedBug();
+            return players[tPlayerRound].PlaceSelectedBug();
         }
         else
         {
