@@ -42,8 +42,8 @@ public class HexComponent : MonoBehaviour
     private void PlaceFromMenu()
     {
 
-        Debug.Log(string.Format("HEX: {0};{1}, SelectedBugId: {2}", Hex.Q, Hex.R, GUI.GetSelectedBugType()));
-        HexMap.updateHex(Hex, GUI.PlaceSelectedBug().Id);
+        Debug.Log(string.Format("HEX: {0};{1}, SelectedBugId: {2}", Hex.Q, Hex.R, GUI.GetSelectedBugType().Id));
+        HexMap.updateHex(Hex, GUI.PlaceSelectedBug());
 
 
 
@@ -56,28 +56,73 @@ public class HexComponent : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Debug.Log(GUI.getRound());
-        Debug.Log(string.Format("{0},{1}", Hex.Q, Hex.R));
+        //Debug.Log(GUI.getRound());
+        //Debug.Log(string.Format("{0},{1}", Hex.Q, Hex.R));
         if (GUI.getRound() == 0)
         {
             
             PlaceFromMenu();
+            return;
+            
+        }
+        else if (GUI.getRound() == 1)
+        {
+            
+            if (Hex.bugType.Id != 0)
+            {
+                
+                return;
+            }
+
+
+            List<Hex> nb = CalculateNeighbor();
+                foreach (var item in nb)
+                {
+                    bool isPlaceable = false;
+                    if (item.bugType.Id != 0 )
+                    {
+                    isPlaceable = true;
+                    }
+
+                    if (isPlaceable)
+                    {
+                        PlaceFromMenu();
+                        return;
+                    }
+
+                }
+            return;
             
         }
         else
         {
+            if (Hex.bugType.Id != 0)
+            {
+                //TODO: Implement the bug selection and movement here
+                return;
+            }
             List<Hex> nb = CalculateNeighbor();
-            bool isPlaceable = false;
+            bool isPlaceable = true;
 
-            //check the neighbours for other bug
+            //check the neighbours for playerIds
             foreach (var item in nb)
             {
-
+                Debug.Log("Hex coord:" + item.Q+" " + item.R + "PlayerID of the hex:" + item.bugType.playerID + " PlayerTurnId:" + GUI.WhosTurnIs());
                 //if any neighbour is a bug isPlaceable = true
-                if (item.TileType != 0)
+                
+                if (item.bugType.playerID == GUI.WhosTurnIs())
                 {
-                    isPlaceable = true;
+                    if (item.bugType.playerID != 3)
+                    {
+
+
+                        isPlaceable = false;
+                        Debug.Log(isPlaceable);
+                    }
                 }
+
+                //Debug.Log(item.PlayerId + " " + GUI.WhosTurnIs());
+                
             }
 
 
@@ -87,8 +132,10 @@ public class HexComponent : MonoBehaviour
 
 
                 PlaceFromMenu();
+                return;
 
             }
+            return;
 
         }
 

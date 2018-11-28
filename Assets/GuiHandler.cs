@@ -8,15 +8,28 @@ public class GuiHandler : MonoBehaviour
 {
 
     public PlayerHandler[] players;
+    public Text RoundDisplay;
 
     private int Round;
 
     public BugType PlaceSelectedBug()   
     {
 
-        Round++;
-        Debug.Log(string.Format("round {0}, player: {1}", Round, WhosTurnIs()));
-        return players[WhosTurnIs()].PlaceSelectedBug();
+        
+        //Debug.Log(string.Format("round {0}, player: {1}", Round, WhosTurnIs()));
+        
+        if (players[WhosTurnIs()].SelectedEnoughInInventory())
+        {
+            
+            Round++;
+            return players[WhosTurnIs()].PlaceSelectedBug();
+        }
+        else
+        {
+           return BugTypeFactory.CreateDefault();
+        }
+
+        
         
 
         
@@ -26,7 +39,7 @@ public class GuiHandler : MonoBehaviour
     {
         
         Debug.Log(string.Format("round {0}, player: {1}", Round, WhosTurnIs()));
-        return players[WhosTurnIs()].PlaceSelectedBug();
+        return players[WhosTurnIs()].GetSelectedBugType();
 
 
 
@@ -44,7 +57,7 @@ public class GuiHandler : MonoBehaviour
      public int WhosTurnIs()
     {
 
-        Debug.Log(Round+"before");
+        //Debug.Log(Round+"before");
         if (Round % 2  == 0)
         {
         
@@ -59,6 +72,8 @@ public class GuiHandler : MonoBehaviour
 
     private void Update()
     {
+        RoundDisplay.text = WhosTurnIs().ToString();
+
         if (Input.GetKey("a"))
         {
             Debug.Log(Round);

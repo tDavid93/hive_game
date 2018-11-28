@@ -23,6 +23,9 @@ public class BugType{
         Name = bName;
         IsHiveWalker = bHWalk;
         StepCount = stepCount;
+        playerID = pId;
+
+        
        
     }
 
@@ -95,13 +98,14 @@ static class BugTypeFactory{
     /// </summary>
     static readonly public Dictionary<int, int> bugDefaultCount = new Dictionary<int, int>()
     {
+        //{0, int.MaxValue},
         {1, 1},
         {2, 3},
         {3, 2},
         {4, 3},
         {5, 2},
         {6, 1},
-        {7,1 },
+        {7, 1},
         {8, 1},
       };
         
@@ -119,7 +123,7 @@ static class BugTypeFactory{
         if (bugId >= bugIdToName.Count || bugId < 0)
         {
             Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");
-            bugId = 0;
+            return CreateDefault();
         }
 
         //TODO:
@@ -134,24 +138,24 @@ static class BugTypeFactory{
     /// </summary>
     /// <param name="bugId"></param>
     /// <returns></returns>
-    static public BugType CreateBugType(int bugId)
-    {
-        bugId = 0;
-        int PId = 0;
-        if (bugId >= bugIdToName.Count || bugId < 0)
-        {
-            Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");
-            bugId = 0;
-        }
+    //static public BugType CreateBugType(int bugId)
+    //{
+    //    bugId = 0;
+    //    int PId = 0;
+    //    if (bugId >= bugIdToName.Count || bugId < 0)
+    //    {
+    //        Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");
+    //        bugId = 0;
+    //    }
 
-        //TODO:
-        //Make it work for player 2!!!!
-        return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId], PId);
-    }
+    //    //TODO:
+    //    //Make it work for player 2!!!!
+    //    return new BugType(bugId, bugName[bugId], bugIsHiveWalker[bugId], bugStepCount[bugId], PId);
+    //}
     static public BugType CreateDefault()
         {
             int bugId = 0;
-            int PId = 0;
+            int PId = 3;
             if (bugId >= bugIdToName.Count || bugId < 0)
             {
                 Debug.LogError("Wrong BugId!!! Must be in 0->" + bugIdToName.Count + " The Bug type is set to Empty:0");

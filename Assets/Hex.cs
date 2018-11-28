@@ -27,6 +27,7 @@ public class Hex
 
     public int TileType;
     public int PlayerId;
+    public BugType bugType;
 
 
 

@@ -46,11 +46,12 @@ public class PlayerHandler : MonoBehaviour {
     /// <returns></returns>
     public BugType PlaceSelectedBug()
     {
+        Debug.Log("PlaceSelectedBug(): " + GetSelectedBugType().Name);
         //if the bee stays in the inventory in the 4. round then change the active toggle for the bee and return with an empty element
         if (PlayerRound == 3 && BeeToggle.GetComponent<MenuElementHandler>().CountLeft == 1 && BeeToggle.isOn == false)
         {
             BeeToggle.isOn = true;
-            return BugTypeFactory.CreateBugType(0);
+            return BugTypeFactory.CreateDefault();
 
         }
 
@@ -59,10 +60,12 @@ public class PlayerHandler : MonoBehaviour {
         {
             PlayerRound++;
             GetSelectedElementHandler().CountLeft--;
-
+            Debug.Log("is enough");
             return GetSelectedBugType();
         }
-        return BugTypeFactory.CreateBugType(0);
+
+        Debug.Log("not enough");
+        return BugTypeFactory.CreateDefault();
     }
 
     /// <summary>
@@ -72,8 +75,11 @@ public class PlayerHandler : MonoBehaviour {
     public BugType GetSelectedBugType()
     {
 
+     
 
-        return BugSelecter.GetActive().GetComponent<MenuElementHandler>().MenuType;
+        BugType temp = BugSelecter.GetActive().GetComponent<MenuElementHandler>().MenuType;
+        Debug.Log("GetSelectedBugType(): "+  BugSelecter.GetActive().GetComponent<MenuElementHandler>().MenuType.Name);
+        return temp;
 
     }
     /// <summary>

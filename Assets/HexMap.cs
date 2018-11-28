@@ -75,10 +75,28 @@ public class HexMap : MonoBehaviour {
     /// <param name="material"></param>
     public void updateHex(Hex hex, int material)
     { MeshRenderer mr;
-        Debug.Log(material);
+       // Debug.Log(material);
         hex.TileType = material;
+        hex.PlayerId = GUI.GetComponent<GuiHandler>().WhosTurnIs();
         mr = hexToGameObjectMap[hex].GetComponentInChildren<MeshRenderer>();
         mr.material = getMatForPlayer()[material]; //GUI.GetComponent<GuiHandler>().WhosTurnIs(),
+    }
+
+
+    /// <summary>
+    /// updtae the hex map with given BugType 
+    /// </summary>
+    /// <param name="hex"></param>
+    /// <param name="material"></param>
+    public void updateHex(Hex hex, BugType bug)
+    {
+        MeshRenderer mr;
+       Debug.Log(bug.Name);
+        hex.TileType = bug.Id;
+        hex.PlayerId = bug.playerID;
+        hex.bugType = bug;
+        mr = hexToGameObjectMap[hex].GetComponentInChildren<MeshRenderer>();
+        mr.material = getMatForPlayer()[bug.Id]; //GUI.GetComponent<GuiHandler>().WhosTurnIs(),
     }
 
     public Material[] getMatForPlayer()
@@ -105,7 +123,7 @@ public class HexMap : MonoBehaviour {
 
         for (int column = 0; column < sizeX; column++)
         {
-            Debug.Log(string.Format("the x size is {0}, column is {1}", sizeX, column ));
+            //Debug.Log(string.Format("the x size is {0}, column is {1}", sizeX, column ));
             for (int row = 0; row < sizeY; row++)
             {
                 //Instantiate a Hex
@@ -123,6 +141,7 @@ public class HexMap : MonoBehaviour {
                 //Debug.Log(string.Format("{0} , {1} , {2}", h.Q, h.R, h.S));
                 //Debug.Log(string.Format("{0} , ", hexGo.GetComponent<Transform>().localPosition ));
                 h.TileType = 0;
+                h.bugType = BugTypeFactory.CreateDefault();
                 hexToGameObjectMap[h] = hexGo;
                 
                 hexGo.name = string.Format("HEX: {0},{1}", column, row);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657892, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 3
   CountLeft: 0
+  Ph: {fileID: 1646573960}
 --- !u!114 &260917029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 1
   CountLeft: 0
+  Ph: {fileID: 1646573960}
 --- !u!114 &384732308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,6 +923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 5
   CountLeft: 0
+  Ph: {fileID: 951331613}
 --- !u!114 &386046244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,6 +1883,81 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844718778}
   m_CullTransparentMesh: 0
+--- !u!1 &904509929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 904509930}
+  - component: {fileID: 904509932}
+  - component: {fileID: 904509931}
+  m_Layer: 5
+  m_Name: RoundDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &904509930
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904509929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1301863503}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 160, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &904509931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904509929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9811321, g: 0.08725326, b: 0.013883919, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 200
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: xx
+--- !u!222 &904509932
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 904509929}
+  m_CullTransparentMesh: 0
 --- !u!1 &911707615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088a3cc5a6ed0524fb43c1288bd55d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerId: 0
+  PlayerId: 1
   BugSelecter: {fileID: 67446035}
   BeeToggle: {fileID: 0}
   PlayerRound: 0
@@ -2536,6 +2614,7 @@ RectTransform:
   m_Children:
   - {fileID: 951331614}
   - {fileID: 1646573962}
+  - {fileID: 904509930}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2559,6 +2638,7 @@ MonoBehaviour:
   players:
   - {fileID: 1646573961}
   - {fileID: 951331615}
+  RoundDisplay: {fileID: 904509931}
 --- !u!1 &1325467497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 2
   CountLeft: 0
+  Ph: {fileID: 951331613}
 --- !u!114 &1345462845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3116,6 +3197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 5
   CountLeft: 0
+  Ph: {fileID: 1646573960}
 --- !u!114 &1491654234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3215,6 +3297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 1
   CountLeft: 0
+  Ph: {fileID: 951331613}
 --- !u!114 &1512756097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3661,6 +3744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 3
   CountLeft: 0
+  Ph: {fileID: 951331613}
 --- !u!114 &1854674730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3760,6 +3844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 4
   CountLeft: 0
+  Ph: {fileID: 951331613}
 --- !u!114 &1863008702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3859,6 +3944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 4
   CountLeft: 0
+  Ph: {fileID: 1646573960}
 --- !u!114 &1953826437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4104,6 +4190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bugId: 2
   CountLeft: 0
+  Ph: {fileID: 1646573960}
 --- !u!114 &2146884970
 MonoBehaviour:
   m_ObjectHideFlags: 0
